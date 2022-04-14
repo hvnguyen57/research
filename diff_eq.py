@@ -7,12 +7,12 @@ import math
 def func (z, t):
     phi, ro = z
     print (z,t)
-    curvature = abs((-math.cos(ro) * math.sin(ro)) / (-math.cos(ro)**3)); #curvature = || d * d2 || / || d || ^ 3
+    curvature = abs((ro * (1 - (phi * math.sin(ro)))/ math.cos(ro))); 
     #current curvature equation not correct; ask about this in meeting
-    #return [-math.sin(ro), (math.cos(ro) * curvature)/(1 + (curvature * phi))]
-    return [-math.sin(ro), (math.cos(ro))/(1 + (phi))]
+    return [-math.sin(ro), (math.cos(ro) * curvature)/(1 + (curvature * phi))]
+    #return [-math.sin(ro), (math.cos(ro))/(1 + (phi))]
 
-def euler(f, x0, t):
+def euler (f, x0, t):
     x = np.zeros(len(t))
     x[0] = x0;
     for n in range (0, len(t)-1):
@@ -20,7 +20,7 @@ def euler(f, x0, t):
     return x
 
 #Solving diff equations
-t = np.linspace(0,10,501)   
+t = np.linspace(0,100,501)   
 z0 = [1,0]
 xx=odeint(func, z0, t)
 pl.figure(1)
@@ -31,13 +31,13 @@ pl.grid(True)
 pl.show()
 
 #Euler approx method
-t2 = np.linspace(0,2,21);
-x0 = 1
-f = lambda x,t: x
-x = euler(f,x0,t)
-x_true = np.exp(t2)
-p2.plot(t,x,'b.-',t2,x_true,'r-')
-p2.legend(['Euler','True'])
-p2.axis([0,2,0,9])
-p2.grid(True)
-p2.show()
+#t2 = np.linspace(0,2,21);
+#x0 = 1
+#f = lambda x,t: x
+#x = euler(f,x0,t)
+#x_true = np.exp(t2)
+#p2.plot(t,x,'b.-',t2,x_true,'r-')
+#p2.legend(['Euler','True'])
+#p2.axis([0,2,0,9])
+#p2.grid(True)
+#p2.show()
