@@ -23,3 +23,18 @@ for i in range (n-1):
 
 fig, ax = plt.subplots(1, 1, figsize=(8,4))
 ax.plot(t, x, lw=2)
+
+ntrials = 10000
+X = np.zeros(ntrials)
+
+bins = np.linspace(-2., 14., 100)
+fig, ax = plt.subplots(1, 1, figsize=(8, 4))
+for i in range(n):
+    X += dt * (-(X - mu) / tau) + \
+        sigma_bis * sqrtdt * np.random.randn(ntrials)
+    if i in (5, 50, 900):
+        hist, _ = np.histogram(X, bins=bins)
+        ax.plot((bins[1:] + bins[:-1]) / 2, hist,
+                {5: '-', 50: '.', 900: '-.', }[i],
+                label=f"t={i * dt:.2f}")
+    ax.legend()
