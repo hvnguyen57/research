@@ -1,3 +1,4 @@
+import matplotlib
 import matplotlib.pyplot as pl 
 import matplotlib.pyplot as p2
 import numpy as np 
@@ -7,9 +8,10 @@ import math
 def func (z, t):
     phi, ro = z
     print (z,t)
-    curvature = abs((ro * (1 - (phi * math.sin(ro)))/ math.cos(ro))); 
+    #curvature = (ro * (1 - (phi * math.sin(ro)))/ math.cos(ro)); 
+    curvature = 1
     #current curvature equation not correct; ask about this in meeting
-    return [-math.sin(ro), (math.cos(ro) * curvature)/(1 + (curvature * phi))]
+    return [-math.sin(phi), (math.cos(phi) * curvature)/(1 + (curvature * ro))]
     #return [-math.sin(ro), (math.cos(ro))/(1 + (phi))]
 
 def euler (f, x0, t):
@@ -20,13 +22,13 @@ def euler (f, x0, t):
     return x
 
 #Solving diff equations
-t = np.linspace(0,100,501)   
-z0 = [1,0]
+t = np.linspace(0,1,501)   
+z0 = [(math.pi/4), 1]
 xx=odeint(func, z0, t)
 pl.figure(1)
 pl.plot(t, xx[:,0],t,xx[:,1])
 pl.xlabel('Time')
-pl.legend(['phi', 'ro'])
+pl.legend(['ro', 'phi'])
 pl.grid(True)
 pl.show()
 
