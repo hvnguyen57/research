@@ -11,9 +11,9 @@ z = math.sin(phi)
 roInitial = 1
 positiveInfinity = math.inf
 
-dt = 0.001
+dt = 0.001 #delta
 T = 1.
-n = int(T / dt)
+n = int(T / dt) #N
 t = np.linspace(0, T, n)
 sqrtdt = np.sqrt(dt)
 
