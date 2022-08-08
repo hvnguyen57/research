@@ -1,4 +1,6 @@
 #Marine Robot Movement Simulation using Euler-Maryama Method
+#Models (Fig. 1) referenced from "Stability and Robustness Analysis for Curve Tracking Control using Input-to-State Stability"
+#Link: https://ieeexplore.ieee.org/document/6068226 
 
 import matplotlib.pyplot as plt
 import numpy as np
