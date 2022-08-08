@@ -1,3 +1,5 @@
+#Marine Robot Movement Simulation using Euler-Maryama Method
+
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
