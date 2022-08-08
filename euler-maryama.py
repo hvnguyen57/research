@@ -1,5 +1,5 @@
 #Taken from the Euler-Maryama method Wikipedia page
-#https://en.wikipedia.org/wiki/Euler%E2%80%93Maruyama_method 
+#https://en.wikipedia.org/wiki/Euler%E2%80%93Maruyama_method  
 
 import numpy as np
 import matplotlib.pyplot as plt
